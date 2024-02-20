@@ -1,22 +1,24 @@
+import React from "react";
 import {
   Image,
   ImageBackground,
   ScaledSize,
   StyleSheet,
-  Text,
   View,
-  useWindowDimensions,
 } from "react-native";
-import React from "react";
 import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
+import useApplicationDimensions from "../hooks/useApplicationDimensions";
 
 const HomeBackground = () => {
-  const dimensions = useWindowDimensions();
+  const dimensions = useApplicationDimensions();
   const { width, height } = dimensions;
   const myStyles = styles(dimensions);
 
+  const smokeHeight = height * 0.6;
+  const smokeOffsetY = height * 0.4;
+
   return (
-    <>
+    <View style={{ ...StyleSheet.absoluteFillObject }}>
       <Canvas style={{ flex: 1 }}>
         <Rect x={0} y={0} width={width} height={height}>
           <LinearGradient
@@ -34,13 +36,29 @@ const HomeBackground = () => {
           height: "100%",
         }}
       >
+        <Canvas
+          style={{
+            height: smokeHeight,
+            ...StyleSheet.absoluteFillObject,
+            top: smokeOffsetY,
+          }}
+        >
+          <Rect x={0} y={0} width={width} height={smokeHeight}>
+            <LinearGradient
+              start={vec(width / 2, 0)}
+              end={vec(width / 2, smokeHeight)}
+              colors={["rgba(58,63,84,0)", "rgba(58,63,84,1)"]}
+              positions={[-0.02, 0.54]}
+            />
+          </Rect>
+        </Canvas>
         <Image
           source={require("../../assets/home/House.png")}
           style={myStyles.houseImage}
           resizeMode="cover"
         />
       </ImageBackground>
-    </>
+    </View>
   );
 };
 
