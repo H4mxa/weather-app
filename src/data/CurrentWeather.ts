@@ -1,7 +1,7 @@
 import { Weather } from "../models/Weather";
 
 export const currentWeather: Weather = {
-  city: "Montreal, Canada",
+  city: "Islamabad, Pakistan",
   temperature: 19,
   condition: "Rainy",
   high: 24,

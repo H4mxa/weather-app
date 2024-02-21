@@ -11,7 +11,7 @@ export const hourly: Forecast[] = [
     low: 18,
     type: ForecastType.Hourly,
     location: "Montreal, Canada",
-    icon: require("../assets/forecast/sun_rain.png"),
+    icon: require("../../assets/forecast/sun_rain.png"),
   },
   {
     date: new Date(),
@@ -22,7 +22,7 @@ export const hourly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Hourly,
-    icon: require("../assets/forecast/rain.png"),
+    icon: require("../../assets/forecast/rain.png"),
   },
   {
     date: new Date(Date.now() + hour),
@@ -33,7 +33,7 @@ export const hourly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Hourly,
-    icon: require("../assets/forecast/rain.png"),
+    icon: require("../../assets/forecast/rain.png"),
   },
   {
     date: new Date(Date.now() + hour * 2),
@@ -44,7 +44,7 @@ export const hourly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Hourly,
-    icon: require("../assets/forecast/rain.png"),
+    icon: require("../../assets/forecast/rain.png"),
   },
   {
     date: new Date(Date.now() + hour * 3),
@@ -55,7 +55,7 @@ export const hourly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Hourly,
-    icon: require("../assets/forecast/rain.png"),
+    icon: require("../../assets/forecast/rain.png"),
   },
   {
     date: new Date(Date.now() + hour * 4),
@@ -66,7 +66,7 @@ export const hourly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Hourly,
-    icon: require("../assets/forecast/rain.png"),
+    icon: require("../../assets/forecast/rain.png"),
   },
   // ... add more forecasts if needed
 ];
@@ -83,7 +83,7 @@ export const weekly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/rain.png"),
+    icon: require("../../assets/forecast/rain.png"),
   },
   {
     date: new Date(Date.now() + day),
@@ -94,7 +94,7 @@ export const weekly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/windy.png"),
+    icon: require("../../assets/forecast/windy.png"),
   },
   {
     date: new Date(Date.now() + day * 2),
@@ -105,7 +105,7 @@ export const weekly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/rain.png"),
+    icon: require("../../assets/forecast/rain.png"),
   },
   {
     date: new Date(Date.now() + day * 3),
@@ -116,7 +116,7 @@ export const weekly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/rain.png"),
+    icon: require("../../assets/forecast/rain.png"),
   },
   {
     date: new Date(Date.now() + day * 4),
@@ -127,7 +127,7 @@ export const weekly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/windy.png"),
+    icon: require("../../assets/forecast/windy.png"),
   },
   {
     date: new Date(Date.now() + day * 5),
@@ -138,7 +138,7 @@ export const weekly: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/rain.png"),
+    icon: require("../../assets/forecast/rain.png"),
   },
 ];
 export const ForecastList: Forecast[] = [
@@ -151,7 +151,7 @@ export const ForecastList: Forecast[] = [
     low: 18,
     location: "Montreal, Canada",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/rain_large.png"),
+    icon: require("../../assets/forecast/rain_large.png"),
   },
   {
     date: new Date(Date.now()),
@@ -162,7 +162,7 @@ export const ForecastList: Forecast[] = [
     low: -19,
     location: "Toronto, Canada",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/wind_large.png"),
+    icon: require("../../assets/forecast/wind_large.png"),
   },
   {
     date: new Date(Date.now()),
@@ -173,7 +173,7 @@ export const ForecastList: Forecast[] = [
     low: 8,
     location: "Tokyo, Japan",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/cloudy_large.png"),
+    icon: require("../../assets/forecast/cloudy_large.png"),
   },
   {
     date: new Date(Date.now()),
@@ -184,7 +184,7 @@ export const ForecastList: Forecast[] = [
     low: 16,
     location: "Tennessee, United States",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/tornado_large.png"),
+    icon: require("../../assets/forecast/tornado_large.png"),
   },
   {
     date: new Date(Date.now()),
@@ -195,7 +195,7 @@ export const ForecastList: Forecast[] = [
     low: 26,
     location: "Singapore, Singapore",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/rain_large.png"),
+    icon: require("../../assets/forecast/rain_large.png"),
   },
   {
     date: new Date(Date.now()),
@@ -206,6 +206,6 @@ export const ForecastList: Forecast[] = [
     low: 16,
     location: "Taipei, Taiwan",
     type: ForecastType.Weekly,
-    icon: require("../assets/forecast/rain_large.png"),
+    icon: require("../../assets/forecast/rain_large.png"),
   },
 ];
