@@ -11,9 +11,9 @@ This repository is still under development and I will continue to add more featu
 
 ## Screenshots
 <p>
-  <img width = "400" alt="Weather - Home" src="https://github.com/H4mxa/weather-app/assets/49597251/df65bdde-32d6-4b7d-a9ed-28873653d0c3">
-  <img width = "400" alt="Add" src="https://github.com/H4mxa/weather-app/assets/49597251/bf96dc63-9abb-4087-8111-eb01773875d7">
-  <img width = "400" alt="Add" src="https://github.com/H4mxa/weather-app/assets/49597251/5bdabedd-1ddf-4c58-8b26-f4394d805746">
+  <img width = "300" alt="Weather - Home" src="https://github.com/H4mxa/weather-app/assets/49597251/df65bdde-32d6-4b7d-a9ed-28873653d0c3">
+  <img width = "300" alt="Add" src="https://github.com/H4mxa/weather-app/assets/49597251/bf96dc63-9abb-4087-8111-eb01773875d7">
+  <img width = "300" alt="Add" src="https://github.com/H4mxa/weather-app/assets/49597251/5bdabedd-1ddf-4c58-8b26-f4394d805746">
 </p>
 
 ## Getting started
