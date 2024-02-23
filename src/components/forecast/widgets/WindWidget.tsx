@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Widget, { WidgetDimensionsProps } from "./base/Widget";
-import { Feather,Fontisto } from "@expo/vector-icons";
+import { Feather, Fontisto } from "@expo/vector-icons";
 
 const WindWidget = ({ width, height }: WidgetDimensionsProps) => {
   return (
@@ -12,10 +12,14 @@ const WindWidget = ({ width, height }: WidgetDimensionsProps) => {
         iconProps={{ name: "wind" }}
       />
       <Widget.Body>
-          <View style={{flex:1,
-            
-            alignItems:'center',justifyContent:'center'}}>
-        <Fontisto name="compass-alt" size={100} color="white" />
+        <View
+          style={{
+            flex: 1,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Fontisto name="compass-alt" size={90} color="white" />
         </View>
       </Widget.Body>
     </Widget>

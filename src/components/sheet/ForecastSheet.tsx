@@ -18,24 +18,49 @@ import HumidityWidget from "../forecast/widgets/HumidityWidget";
 import VisibilityWidget from "../forecast/widgets/VisibilityWidget";
 import PressureWidget from "../forecast/widgets/PressureWidget";
 import { ScrollView } from "react-native-gesture-handler";
+import { useAnimatedReaction, useSharedValue } from "react-native-reanimated";
+import { useForecastSheetPosition } from "../../context/ForecastSheetContext";
 
 const ForecastSheet = () => {
   const { width, height } = useApplicationDimensions();
   const snapPoints = ["38.5%", "83%"];
   const firstSnapPoint = height * (parseFloat(snapPoints[0]) / 100);
+  const secondSnapPoint = height * (parseFloat(snapPoints[1]) / 100);
+  const minY = height - secondSnapPoint;
+  const maxY = height - firstSnapPoint;
   const smallWidgetSize = width / 2 - 20;
   const cornerRadius = 44;
   const capsuleRadius = 30;
   const capsuleWidth = width * 0.15;
   const capsuleHeight = height * 0.17;
 
+  const animatedPosition = useForecastSheetPosition();
+
   // state
   const [selectedForecastType, setSelectedForecastType] =
     useState<ForecastType>(ForecastType.Hourly);
 
+  const currentPosition = useSharedValue(0);
+
+  const normalizePosition = (position: number) => {
+    "worklet";
+    return ((position - maxY) / (maxY - minY)) * -1;
+  };
+
+  useAnimatedReaction(
+    () => {
+      return currentPosition.value;
+    },
+    (cv) => {
+      animatedPosition.value = normalizePosition(cv);
+    }
+  );
+
   return (
     <BottomSheet
       snapPoints={snapPoints}
+      animatedPosition={currentPosition}
+      animateOnMount={false}
       handleIndicatorStyle={{
         width: 48,
         height: 5,
@@ -55,7 +80,8 @@ const ForecastSheet = () => {
         <Seperator width={width} height={3} />
         <ScrollView
           style={{ flex: 1 }}
-          contentContainerStyle={{ paddingBottom: 10 }}
+          contentContainerStyle={{ paddingBottom: 30 }}
+          showsVerticalScrollIndicator={false}
         >
           <ForecastScroll
             capsuleWidth={capsuleWidth}

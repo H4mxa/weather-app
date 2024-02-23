@@ -1,7 +1,4 @@
-import {
-  StyleProp,
-  StyleSheet,
-} from "react-native";
+import { StyleProp, StyleSheet } from "react-native";
 import React from "react";
 import {
   Canvas,
@@ -14,7 +11,7 @@ import {
 import { Feather } from "@expo/vector-icons";
 import Widget, { WidgetDimensionsProps } from "./base/Widget";
 
-const UvIndexWidget = ({ width, height }:WidgetDimensionsProps) => {
+const UvIndexWidget = ({ width, height }: WidgetDimensionsProps) => {
   return (
     <>
       <Widget width={width} height={height}>
@@ -23,8 +20,12 @@ const UvIndexWidget = ({ width, height }:WidgetDimensionsProps) => {
           iconProps={{ name: "sun" }}
           contentText="UV INDEX"
         />
-        <Widget.Body contentText="4" contentSize='Large' subContentText="Moderate">
-          <Canvas style={{ height: 10, marginTop: 30, flex: 1 }}>
+        <Widget.Body
+          contentText="4"
+          contentSize="Large"
+          subContentText="Moderate"
+        >
+          <Canvas style={{ height: 10, marginTop: 20, flex: 1 }}>
             <Line
               p1={vec(0, 0)}
               p2={vec(width, 0)}
@@ -57,6 +58,4 @@ const UvIndexWidget = ({ width, height }:WidgetDimensionsProps) => {
 
 export default UvIndexWidget;
 
-const styles = StyleSheet.create({
-  
-});
+const styles = StyleSheet.create({});

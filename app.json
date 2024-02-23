@@ -23,7 +23,10 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -35,10 +38,20 @@
         "android.permission.ACCESS_FINE_LOCATION",
         "android.permission.FOREGROUND_SERVICE"
       ],
-      "package": "com.anonymous.weatherapp"
+      "package": "com.anonymous.weatherapp",
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ff9f5f3d-5a2f-461d-80ce-023585ef577e"
+      }
+    },
+    "owner": "0xh4mxa",
+    "updates": {
+      "url": "https://u.expo.dev/ff9f5f3d-5a2f-461d-80ce-023585ef577e"
     }
   }
 }

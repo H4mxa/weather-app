@@ -19,6 +19,7 @@
     "expo-location": "^16.5.3",
     "expo-splash-screen": "^0.26.4",
     "expo-status-bar": "~1.11.1",
+    "expo-updates": "~0.24.11",
     "react": "18.2.0",
     "react-native": "0.73.4",
     "react-native-gesture-handler": "^2.15.0",

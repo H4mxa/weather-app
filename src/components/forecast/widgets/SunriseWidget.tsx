@@ -81,7 +81,7 @@ const SunriseWidget = ({ width, height }: WidgetDimensionsProps) => {
               left: 28,
             }}
           >
-            <Circle cx={8} cy={8} r={4} color={"white"}>
+            <Circle cx={8} cy={5} r={4} color={"white"}>
               <Paint style="stroke" strokeWidth={2} color="white" />
             </Circle>
           </Canvas>

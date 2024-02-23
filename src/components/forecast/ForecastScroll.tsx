@@ -23,7 +23,6 @@ const ForecastScroll: React.FC<ForecastScrollProps> = ({
       style={{
         paddingLeft: 20,
         paddingTop: 20,
-        maxHeight: "28%",
       }}
     >
       <View style={{ flex: 1, flexDirection: "row", gap: 12 }}>

@@ -1,14 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import HomeBackground from "./src/components/HomeBackground";
-import WeatherTabBar from "./src/components/tabbar/WeatherTabBar";
-import WeatherInfo from "./src/components/section/WeatherInfo";
-import { currentWeather } from "./src/data/CurrentWeather";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { hideAsync, preventAutoHideAsync } from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { useCallback } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import ForecastSheet from "./src/components/sheet/ForecastSheet";
+import Home from "./src/screens/Home";
 
 preventAutoHideAsync();
 
@@ -30,10 +26,7 @@ export default function App() {
   return (
     <SafeAreaProvider onLayout={onLayoutRootView}>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <HomeBackground />
-        <WeatherInfo weather={currentWeather} />
-        <ForecastSheet />
-        <WeatherTabBar />
+        <Home />
         <StatusBar style="light" />
       </GestureHandlerRootView>
     </SafeAreaProvider>
