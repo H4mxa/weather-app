@@ -46,8 +46,6 @@ const ForecastControl: React.FC<ForecastControlProps> = ({ onPress }) => {
   });
 
   const onForecastPress = (type: ForecastType) => {
-    console.log("animatedSegmentLineStyle", segmentTranslateX.value);
-
     if (type === ForecastType.Weekly) {
       segmentTranslateX.value = withTiming(width - textWidth - spacingX * 3.5, {
         duration: 1000,

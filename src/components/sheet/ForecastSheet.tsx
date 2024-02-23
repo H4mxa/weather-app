@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import BottomSheet from "@gorhom/bottom-sheet";
 import ForecastSheetBackground from "./ForecastSheetBackground";
 import useApplicationDimensions from "../../hooks/useApplicationDimensions";
@@ -18,7 +18,12 @@ import HumidityWidget from "../forecast/widgets/HumidityWidget";
 import VisibilityWidget from "../forecast/widgets/VisibilityWidget";
 import PressureWidget from "../forecast/widgets/PressureWidget";
 import { ScrollView } from "react-native-gesture-handler";
-import { useAnimatedReaction, useSharedValue } from "react-native-reanimated";
+import Animated, {
+  useAnimatedReaction,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 import { useForecastSheetPosition } from "../../context/ForecastSheetContext";
 
 const ForecastSheet = () => {
@@ -41,6 +46,38 @@ const ForecastSheet = () => {
     useState<ForecastType>(ForecastType.Hourly);
 
   const currentPosition = useSharedValue(0);
+
+  const translateXHourly = useSharedValue(0);
+  const translateXWeekly = useSharedValue(width);
+
+  const animatedHourlyStyles = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateX: translateXHourly.value,
+        },
+      ],
+    };
+  });
+  const animatedWeeklyStyles = useAnimatedStyle(() => {
+    return {
+      transform: [
+        {
+          translateX: translateXWeekly.value,
+        },
+      ],
+    };
+  });
+
+  useEffect(() => {
+    if (selectedForecastType === ForecastType.Weekly) {
+      translateXHourly.value = withTiming(-width);
+      translateXWeekly.value = withTiming(-width);
+    } else {
+      translateXHourly.value = withTiming(0);
+      translateXWeekly.value = withTiming(width);
+    }
+  }, [selectedForecastType]);
 
   const normalizePosition = (position: number) => {
     "worklet";
@@ -83,14 +120,25 @@ const ForecastSheet = () => {
           contentContainerStyle={{ paddingBottom: 30 }}
           showsVerticalScrollIndicator={false}
         >
-          <ForecastScroll
-            capsuleWidth={capsuleWidth}
-            capsuleHeight={capsuleHeight}
-            capsuleRadius={capsuleRadius}
-            forecasts={
-              selectedForecastType === ForecastType.Hourly ? hourly : weekly
-            }
-          />
+          <View style={{ flexDirection: "row" }}>
+            <Animated.View style={animatedHourlyStyles}>
+              <ForecastScroll
+                capsuleWidth={capsuleWidth}
+                capsuleHeight={capsuleHeight}
+                capsuleRadius={capsuleRadius}
+                forecasts={hourly}
+              />
+            </Animated.View>
+            <Animated.View style={animatedWeeklyStyles}>
+              <ForecastScroll
+                capsuleWidth={capsuleWidth}
+                capsuleHeight={capsuleHeight}
+                capsuleRadius={capsuleRadius}
+                forecasts={weekly}
+              />
+            </Animated.View>
+          </View>
+
           <View style={{ flex: 1, paddingTop: 30, paddingBottom: 50 }}>
             <AirQualityWidget width={width - 30} height={150} />
             <View
