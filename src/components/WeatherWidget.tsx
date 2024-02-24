@@ -70,7 +70,7 @@ const WeatherWidget: React.FC<WeatherWidgetProps> = ({ forecast }) => {
         </FitBox>
       </Canvas>
 
-      <View style={{ flex: 1, paddingTop: 40, paddingLeft: 20 }}>
+      <View style={{ flex: 1, paddingTop: 30, paddingLeft: 20 }}>
         <Text style={styles.temperatureText}>
           {temperature} {DEGREE_SYMBOL}
         </Text>

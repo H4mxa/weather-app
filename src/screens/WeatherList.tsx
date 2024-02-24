@@ -77,8 +77,6 @@ const WeatherList = () => {
           </View>
         </View>
 
-        {/* <WeatherWidget forecast={ForecastList[0]} /> */}
-
         <FlatList
           style={{ flex: 1, paddingTop: 20 }}
           contentContainerStyle={{
@@ -89,6 +87,7 @@ const WeatherList = () => {
           showsVerticalScrollIndicator={false}
           data={ForecastList}
           renderItem={({ item }) => <WeatherWidget forecast={item} />}
+          keyExtractor={(_, index) => index.toString()}
         />
       </View>
     </>

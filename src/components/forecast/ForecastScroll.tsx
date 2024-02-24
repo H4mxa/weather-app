@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { Forecast } from "../../models/Weather";
-import { ScrollView } from "react-native-gesture-handler";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
 import ForecastCapsule from "./ForecastCapsule";
 
 interface ForecastScrollProps {
@@ -18,25 +18,26 @@ const ForecastScroll: React.FC<ForecastScrollProps> = ({
   capsuleRadius,
 }) => {
   return (
-    <ScrollView
+    <FlatList
       horizontal
-      style={{
+      data={forecasts}
+      renderItem={({ item }) => (
+        <ForecastCapsule
+          width={capsuleWidth}
+          height={capsuleHeight}
+          radius={capsuleRadius}
+          forecast={item}
+        />
+      )}
+      keyExtractor={(item, index) => index.toString()}
+      contentContainerStyle={{
         paddingLeft: 20,
+        paddingRight: 20,
         paddingTop: 20,
+        flexDirection: "row",
+        gap: 12,
       }}
-    >
-      <View style={{ flex: 1, flexDirection: "row", gap: 12 }}>
-        {forecasts.map((forecast, idx) => (
-          <ForecastCapsule
-            key={idx}
-            width={capsuleWidth}
-            height={capsuleHeight}
-            radius={capsuleRadius}
-            forecast={forecast}
-          />
-        ))}
-      </View>
-    </ScrollView>
+    />
   );
 };
 
