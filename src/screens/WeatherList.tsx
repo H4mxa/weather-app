@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import React from "react";
+import React, { Suspense } from "react";
 import BackgroundGradient from "../components/BackgroundGradient";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Ionicons, Feather } from "@expo/vector-icons";
@@ -15,7 +15,9 @@ import {
 import useApplicationDimensions from "../hooks/useApplicationDimensions";
 import WeatherWidget from "../components/WeatherWidget";
 import { ForecastList } from "../data/ForecastData";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { FlatList } from "react-native-gesture-handler";
+import useIsReady from "../hooks/useIsReady";
+import LoadingView from "../components/LoadingView";
 
 const WeatherList = () => {
   const { top } = useSafeAreaInsets();
@@ -23,8 +25,14 @@ const WeatherList = () => {
 
   const { width } = useApplicationDimensions();
 
+  const isReady = useIsReady();
+
+  if (!isReady) {
+    return <LoadingView />;
+  }
+
   return (
-    <>
+    <Suspense fallback={<LoadingView />}>
       <BackgroundGradient />
       <View style={{ paddingTop: top + 2, flex: 1 }}>
         <View
@@ -90,7 +98,7 @@ const WeatherList = () => {
           keyExtractor={(_, index) => index.toString()}
         />
       </View>
-    </>
+    </Suspense>
   );
 };
 

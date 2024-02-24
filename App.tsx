@@ -28,7 +28,7 @@ export default function App() {
   return (
     <SafeAreaProvider onLayout={onLayoutRootView}>
       <GestureHandlerRootView style={{ flex: 1 }}>
-        <NavigationContainer>
+        <NavigationContainer theme={{ colors: { background: "#000" } } as any}>
           <RootNavigator />
         </NavigationContainer>
         <StatusBar style="light" />
