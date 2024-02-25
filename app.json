@@ -26,7 +26,8 @@
       "supportsTablet": true,
       "runtimeVersion": {
         "policy": "appVersion"
-      }
+      },
+      "bundleIdentifier": "com.anonymous.weatherapp"
     },
     "android": {
       "adaptiveIcon": {
