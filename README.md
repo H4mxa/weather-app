@@ -39,11 +39,11 @@ $ yarn install
 
 #### Android
 ```sh
-$ npx expo run:android
+$ yarn run:android
 ```
 
 #### IOS
 ```sh
-$ npx expo run:ios
+$ yarn run:ios
 ```
 
